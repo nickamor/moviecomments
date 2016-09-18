@@ -1,0 +1,8 @@
+# PhpStorm default settings
+/bookings/vendor
+/bookings/node_modules
+/bookings/public/storage
+/bookings/Homestead.yaml
+/bookings/Homestead.json
+/bookings/.env
+
