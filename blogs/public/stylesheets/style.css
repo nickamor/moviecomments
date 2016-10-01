@@ -6,3 +6,14 @@ body {
 a {
   color: #00B7FF;
 }
+
+/** present movies in a sliding panel **/
+.movies-container ul {
+  padding: 0;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+.movies-container ul li {
+  display: inline;
+}

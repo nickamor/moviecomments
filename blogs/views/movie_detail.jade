@@ -2,4 +2,5 @@ extends layout
 
 block content
   h1= title
-  p #{movie.overview}
+  img(src='#{movie.large_poster_uri}', title='#{movie.title}')
+  p !{movie.overview}

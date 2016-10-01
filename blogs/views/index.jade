@@ -1,10 +1,23 @@
 extends layout
 
+mixin movie_item(movie)
+  li: a(href='/movie/#{movie.id}')
+    img(src='#{movie.small_poster_uri}', title='#{movie.title}')
+
+
 block content
   h1= title
   h2 Now Playing
-  ul
-    for movie in now_playing
-      li: a(href='/movie/#{movie.id}') #{movie.title}
-    else
-      li sorry, no movies!
+  .movies-container
+    ul
+      for movie in now_playing
+        +movie_item(movie)
+      else
+        li sorry, no movies!
+  h2 Popular Movies
+  .movies-container
+    ul
+      for movie in popular
+        +movie_item(movie)
+      else
+        li sorry, no movies!
