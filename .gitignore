@@ -7,5 +7,6 @@
 /bookings/.env
 /blogs/node_modules
 
-.idea/
+.idea
+.idea/workspace.xml
 bookings/.env
