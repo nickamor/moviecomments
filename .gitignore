@@ -7,3 +7,5 @@
 /bookings/.env
 /blogs/node_modules
 
+.idea/
+bookings/.env
