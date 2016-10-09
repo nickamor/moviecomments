@@ -1,34 +1,21 @@
 var express = require('express');
 var router = express.Router();
 
-const movieDb = require('../models/moviedb_gateway.js');
+const blogController = require('../controllers/blog_controller.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  movieDb.getNowPlaying(function (nowPlaying_err, nowPlaying_data) {
-    if (!nowPlaying_err && nowPlaying_data) {
-      movieDb.getPopular(function (popular_err, popular_data) {
-        if (!popular_err && popular_data) {
-          res.render('index', {title: 'Movie Blogs', now_playing: nowPlaying_data, popular: popular_data});
-        } else {
-          res.emit(popular_err);
-        }
-      });
-    } else {
-      res.emit(nowPlaying_err);
-    }
-  });
+  blogController.home(req, res, next);
 });
 
 /* GET movie details */
 router.get('/movie/:movieId', function (req, res, next) {
-  movieDb.getMovie(req.params.movieId, function (err, data) {
-    if (!err && data) {
-      res.render('movie_detail', {title: data.title, movie: data});
-    } else {
-      res.emit(err);
-    }
-  });
+  blogController.movie(req, res, next);
+});
+
+/* POST new comment */
+router.post('/movie/:movieId/comments', function (req, res, next) {
+  blogController.newComment(req, res, next);
 });
 
 module.exports = router;
