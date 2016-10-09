@@ -17,3 +17,20 @@ a {
 .movies-container ul li {
   display: inline;
 }
+
+/** present large movie poster out of the way of other elems **/
+.details {
+    overflow: auto;
+}
+
+.movie-poster {
+    float: right;
+    margin: 14px;
+}
+
+/** small, centered comments form **/
+.comments-form {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
