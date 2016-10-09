@@ -1,6 +1,34 @@
 extends layout
 
+mixin comment_box(comment)
+  .comment.panel.panel-default
+    .comment-heading.panel-heading
+      p #{comment.author} at #{comment.created}
+    .comment-body.panel-body
+      p #{comment.content}
+
 block content
-  h1= title
-  img(src='#{movie.large_poster_uri}', title='#{movie.title}')
-  p !{movie.overview}
+  .details
+    img.movie-poster(src='#{movie.large_poster_uri}', title='#{movie.title}')
+    h1= title
+    p.tagline: em #{movie.tagline}
+    p.release_date Released: #{movie.release_date}
+    p.overview !{movie.overview}
+
+  .comments
+    h2 Comments
+    for comment in comments
+      +comment_box(comment)
+    else
+      p sorry, no comments!
+
+    form.form-horizontal.comments-form(method='post', action='/movie/#{movie.id}/comments')
+      legend New comment
+      input#movie-id(type='hidden', name='movie_id', value='#{movie.id}')
+      .form-group.row
+        //label(for='author') Name:
+        input#author.form-control(type='text', name='author', placeholder='Name')
+      .form-group.row
+        textarea#content.form-control(name='content', placeholder='Comment')
+      .form-group.row
+        input.btn.btn-default(type='submit', value='Post')
