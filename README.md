@@ -48,6 +48,7 @@ Each of the projects are base on the following;
 ### Bookings:
 
 - [Laravel](http://laravel.com)
+- [Laravel Collective](https://laravelcollective.com/)
 
 ### Blogs:
 
@@ -63,7 +64,6 @@ Each of the projects are base on the following;
 - [poster2](http://i.imgur.com/ubxTFqL.jpg)
 - [poster3](http://www.superiorpics.com/wallpaper/file/Will_Ferrell_in_Step_Brothers_Wallpaper_2_1280.jpg)
 - [poster4](https://images.alphacoders.com/675/thumb-1920-675871.jpg)
-
 - [poster5](https://s-media-cache-ak0.pinimg.com/originals/a6/82/59/a6825904227363b8fb49611bd9f9ee0f.jpg)
 - [posert6](http://graphicdesignjunction.com/wp-content/uploads/2011/12/big-miracle-movie-poster.jpg)
 - [poster7](https://s-media-cache-ak0.pinimg.com/564x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02.jpg)
