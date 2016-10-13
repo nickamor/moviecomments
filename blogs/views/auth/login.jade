@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+	if message
+		.alert.alert-danger #{message}
+
+	form(action='/login', method='post')
+		fieldset
+			legend Login
+			.form-group
+				label Email
+				input(type='text', name='email').form-control
+			.form-group
+				label Password
+				input(type='password', name='password').form-control
+			.form-group
+				input(type='submit', value='Submit').btn.btn-default
+
+	p Don't have an account? 
+		a(href='/signup') Sign Up

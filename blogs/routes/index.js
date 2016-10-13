@@ -36,15 +36,15 @@ router.post('/movie/:movieId/comments', function (req, res, next) {
 /** auth routes **/
 
 router.get('/login', function(req, res, next) {
-	res.render('login', { message: req.flash('loginMessage') });
+	res.render('auth/login', { message: req.flash('loginMessage') });
 });
 
 router.get('/signup', function(req, res, next) {
-	res.render('signup', { message: req.flash('signupMessage') });
+	res.render('auth/signup', { message: req.flash('signupMessage') });
 });
 
 router.get('/profile', requireAuth, function(req, res) {
-	res.render('profile', { user: req.user });
+	res.render('auth/profile', { user: req.user });
 });
 
 router.get('/logout', function(req, res) {

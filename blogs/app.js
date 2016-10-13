@@ -32,6 +32,7 @@ app.use(session({ secret: 'faceoff' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+require('./config/passport')(passport);
 
 app.use('/', routes);
 app.use('/users', users);
