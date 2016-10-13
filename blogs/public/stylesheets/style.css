@@ -34,3 +34,16 @@ a {
     padding: 15px;
     margin: 0 auto;
 }
+
+/** show search page poster and description side by side **/
+.search-panel {
+  display: flex;
+}
+
+.search-poster, .search-desc {
+  display: inline-block;
+}
+
+.search-poster {
+  margin-right: 3em;
+}

@@ -115,6 +115,28 @@ MovieDbGateway.prototype.getMovie = function (id, next) {
   });
 };
 
+MovieDbGateway.prototype.search = function(query, next) {
+  var gateway = this;
+  var method = '/3/search/movie/?api_key=' + this.credentials.api_key 
+    + '&language=en-US'
+    + '&query=' + query;
+
+  request(this.host + method, function (err, res, body) {
+    if (!err && res.statusCode === 200) {
+      var search = JSON.parse(body);
+
+      var base_uri = gateway.getSmallPosterBaseUri();
+      for (var i = 0; i < search.results.length; i++) {
+        search.results[i].small_poster_uri = base_uri + search.results[i].poster_path;
+      }
+
+      next(null, search);
+    } else {
+      next(err);
+    }
+  });
+};
+
 MovieDbGateway.prototype.getSmallPosterBaseUri = function () {
   if (this.config) {
     return this.config.images.base_url + this.config.images.poster_sizes[2];

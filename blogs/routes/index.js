@@ -28,6 +28,8 @@ router.get('/movie/:movieId', blogController.movie);
 /* POST new comment */
 router.post('/movie/:movieId/comments', requireAuth, blogController.newComment);
 
+router.get('/search', blogController.search);
+
 /** auth routes **/
 
 router.get('/login', requireUnauth, authController.login);

@@ -88,4 +88,22 @@ BlogController.prototype.newComment = function (req, res, next) {
   res.redirect('/movie/' + item.movie_id);
 };
 
+BlogController.prototype.search = function(req, res) {
+  var query = req.query.q;
+
+  console.log('param', query);
+
+  movieDb.search(query, function(err, data) {
+    if (!err && data) {
+      res.render('search', {
+        user: req.user,
+        title: 'Search', 
+        search: data
+      });
+    } else {
+      res.emit(err);
+    }
+  });
+};
+
 module.exports = new BlogController();

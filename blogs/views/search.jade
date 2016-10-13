@@ -1,0 +1,37 @@
+extends layout
+
+block content
+	h1 Search
+	for result in search.results
+		.panel.panel-default.search-panel
+			.search-poster
+				a(href='/movie/#{result.id}')
+					img(src='#{result.small_poster_uri}', title='#{result.title}')
+			.search-desc
+				a(href='/movie/#{result.id}'): h3= result.title
+				p= result.overview
+	else
+		p sorry, no results! 
+
+	if search.total_results
+		nav(aria-label='Page navigation')
+			ul.pagination
+				if search.page == 1
+					li.disabled: span: span(aria-hidden='true') &laquo;
+				else
+					li: a(href='#', aria-label='Previous')
+							span(aria-hidden='true') &laquo;
+
+				- for (var i = 1; i <= 5 && i <= search.total_pages; i++) {
+					if i == search.page
+						li.active: span= i
+							span.sr-only (current)
+					else
+						li: a(href='#')= i
+				- }
+
+				if search.page == search.total_pages
+					li.disabled: span: span(aria-hidden='true') &raquo;
+				else
+					li: a(href='#', aria-label='Next'): span(aria-hidden='true') &raquo;
+
