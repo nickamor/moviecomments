@@ -20,7 +20,11 @@ BlogController.prototype.home = function(req, res, next) {
     if (!nowPlaying_err && nowPlaying_data) {
       movieDb.getPopular(function (popular_err, popular_data) {
         if (!popular_err && popular_data) {
-          res.render('index', {title: 'Movie Blogs', now_playing: nowPlaying_data, popular: popular_data});
+          res.render('index', {
+            user: req.user,
+            title: 'Movie Blogs', 
+            now_playing: nowPlaying_data, 
+            popular: popular_data});
         } else {
           res.emit(popular_err);
         }
@@ -48,6 +52,7 @@ BlogController.prototype.movie = function (req, res, next) {
         .exec(function (comments_err, comments_data) {
           if (!comments_err && comments_data) {
             res.render('movie_detail', {
+              user: req.user,
               title: movie_data.title, 
               movie: movie_data, 
               comments: comments_data,

@@ -5,6 +5,7 @@ function AuthController() {
 
 AuthController.prototype.login = function(req, res) {
 	res.render('auth/login', {
+        user: req.user,
 		title: 'Login',
 		message: req.flash('loginMessage') 
 	});
@@ -12,6 +13,7 @@ AuthController.prototype.login = function(req, res) {
 
 AuthController.prototype.signup = function(req, res) {
 	res.render('auth/signup', {
+        user: req.user,
 		title: 'Sign Up',
 		message: req.flash('signupMessage') 
 	});

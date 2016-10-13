@@ -4,11 +4,15 @@ nav.navbar.navbar-default
       a.navbar-brand(href='/') Movie Blogs
 
     .collapse.navbar-collapse
-      ul.nav.navbar-nav
-        li: a(href='/') Home
+      if user
+        ul.nav.navbar-nav.navbar-right
+          li: a(href="/profile") Profile
+          li: a(href="/logout") Logout
+      else
+        ul.nav.navbar-nav.navbar-right
+          li: a(href="/login") Login
+          li: a(href="/signup") Sign Up
       form.navbar-form.navbar-right(role='search')
         .form-group
           input.form-control(placeholder="Search",type="text")
-          button.btn.btn-default(type="submit") Submit
-      ul.nav.navbar-nav.navbar-right
-        li: a(href="/login") Login
+          //- button.btn.btn-default(type="submit") Submit
