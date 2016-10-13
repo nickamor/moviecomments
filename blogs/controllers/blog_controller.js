@@ -69,7 +69,7 @@ BlogController.prototype.movie = function (req, res, next) {
 BlogController.prototype.newComment = function (req, res, next) {
   var item = {
     movie_id: req.body.movie_id,
-    author: req.body.author,
+    author: req.body.author || 'Anonymous',
     content: req.body.content
   };
 
