@@ -54,9 +54,10 @@ Each of the projects are base on the following;
 
 - [Node.js](https://nodejs.org)
 - [Express.js](https://expressjs.com)
-
-
-
+- [Request](https://github.com/request/request)
+- [Mongoose](http://mongoosejs.com/)
+- [Bootswatch](http://bootswatch.com/)
+- [Passport](http://passportjs.org/)
 
 ### Images:
 
