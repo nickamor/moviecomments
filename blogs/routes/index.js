@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var credentials = require('../config/credentials');
 
 const blogController = require('../controllers/blog_controller.js');
+const authController = require('../controllers/auth_controller');
 
 // Prevent database connection errors for long-running applications.
 var opts = {
@@ -19,38 +20,23 @@ var opts = {
 mongoose.connect(credentials.mongo.devel.connection, opts);
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  blogController.home(req, res, next);
-});
+router.get('/',  	blogController.home);
 
 /* GET movie details */
-router.get('/movie/:movieId', function (req, res, next) {
-  blogController.movie(req, res, next);
-});
+router.get('/movie/:movieId', blogController.movie);
 
 /* POST new comment */
-router.post('/movie/:movieId/comments', function (req, res, next) {
-  blogController.newComment(req, res, next);
-});
+router.post('/movie/:movieId/comments', requireAuth, blogController.newComment);
 
 /** auth routes **/
 
-router.get('/login', function(req, res, next) {
-	res.render('auth/login', { message: req.flash('loginMessage') });
-});
+router.get('/login', requireUnauth, authController.login);
 
-router.get('/signup', function(req, res, next) {
-	res.render('auth/signup', { message: req.flash('signupMessage') });
-});
+router.get('/signup', requireUnauth, authController.signup);
 
-router.get('/profile', requireAuth, function(req, res) {
-	res.render('auth/profile', { user: req.user });
-});
+router.get('/profile', requireAuth, authController.profile);
 
-router.get('/logout', function(req, res) {
-	req.logout();
-	res.redirect('/');
-});
+router.get('/logout', requireAuth, authController.logout);
 
 router.post('/signup', passport.authenticate('local-signup', {
 	successRedirect: '/profile',
@@ -70,5 +56,12 @@ function requireAuth(req, res, next) {
 	if (req.isAuthenticated()) {
 		return next();
 	}
-	res.redirect('/');
+	res.redirect('/login');
+}
+
+function requireUnauth(req, res, next) {
+	if (!req.isAuthenticated()) {
+		return next();
+	}
+	res.redirect('/profile');
 }
