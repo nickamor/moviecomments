@@ -8,7 +8,7 @@ mixin comment_box(comment)
       p #{comment.content}
 
 block content
-  if message
+  if message && message.length
     .alert.alert-success #{message}
 
   .details
@@ -23,7 +23,7 @@ block content
     for comment in comments
       +comment_box(comment)
     else
-      p sorry, no comments!
+      p Be the first to comment!
 
     form.form-horizontal.comments-form(method='post', action='/movie/#{movie.id}/comments')
       legend New comment
