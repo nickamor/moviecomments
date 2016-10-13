@@ -3,7 +3,7 @@
  */
 
 const movieDb = require('../models/moviedb_gateway.js');
-const db = require('../models/db_gateway.js');
+const Comment = require('../models/comment');
 
 function BlogController() {
 
@@ -42,7 +42,7 @@ BlogController.prototype.movie = function (req, res, next) {
 
   movieDb.getMovie(movie_id, function (movie_err, movie_data) {
     if (!movie_err && movie_data) {
-      db.Comment.find({
+      Comment.find({
         movie_id: movie_id
         })
         .sort({ created: -1 })
@@ -73,7 +73,7 @@ BlogController.prototype.newComment = function (req, res, next) {
     content: req.body.content
   };
 
-  var data = new db.Comment(item);
+  var data = new Comment(item);
   data.save();
 
   res.redirect('/movie/' + item.movie_id).with({ message: 'Success!' });
