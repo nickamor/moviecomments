@@ -1,6 +1,7 @@
+const credentials = require('../config/credentials');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/movie-blogs');
+mongoose.connect(credentials.mongo.devel.connection);
 
 
 /**
