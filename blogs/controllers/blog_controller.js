@@ -42,14 +42,17 @@ BlogController.prototype.movie = function (req, res, next) {
 
   movieDb.getMovie(movie_id, function (movie_err, movie_data) {
     if (!movie_err && movie_data) {
-      Comment.find({
-        movie_id: movie_id
-        })
+      Comment.find({ movie_id: movie_id })
         .sort({ created: -1 })
         .select({ author: 1, content: 1, created: 1 })
         .exec(function (comments_err, comments_data) {
           if (!comments_err && comments_data) {
-            res.render('movie_detail', {title: movie_data.title, movie: movie_data, comments: comments_data});
+            res.render('movie_detail', {
+              title: movie_data.title, 
+              movie: movie_data, 
+              comments: comments_data,
+              message: req.flash('commentMessage')
+            });
           } else {
             res.emit(comments_err);
           }
@@ -76,7 +79,8 @@ BlogController.prototype.newComment = function (req, res, next) {
   var data = new Comment(item);
   data.save();
 
-  res.redirect('/movie/' + item.movie_id).with({ message: 'Success!' });
+  req.flash('commentMessage', 'Success!');
+  res.redirect('/movie/' + item.movie_id);
 };
 
 module.exports = new BlogController();

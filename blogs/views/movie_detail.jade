@@ -8,6 +8,9 @@ mixin comment_box(comment)
       p #{comment.content}
 
 block content
+  if message
+    .alert.alert-success #{message}
+
   .details
     img.movie-poster(src='#{movie.large_poster_uri}', title='#{movie.title}')
     h1= title
