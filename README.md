@@ -1,8 +1,12 @@
 # moviecomments
 
-See recent and popular movies, search for movies, and comment on individual movies.
+See recent and popular movies, search for movies, and comment on individual movies. Uses [The Movie Database API](https://www.themoviedb.org/).
 
-Initially created for ISYS1126 Web Database Applications, Assignment 2, Semester 2 2016. 
+Initially created for ISYS1126 Web Database Applications, Assignment 2, Semester 2 2016.
+
+![Front page view](public/screenshots/screenshot-1.png)
+![Movie detail view](public/screenshots/screenshot-2.png)
+![Movie search view](public/screenshots/screenshot-3.png)
 
 ## First run
 
