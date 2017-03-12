@@ -1,19 +1,17 @@
-# WDA-A2
-A git repository for Web Database Applications, assignment 2.
+# moviecomments
+
+See recent and popular movies, search for movies, and comment on individual movies.
+
+Initially created for ISYS1126 Web Database Applications, Assignment 2, Semester 2 2016. 
 
 ## First run
-To download the dependencies for each project, run the following commands in either the PhpStorm Run Command tool or a terminal in the project directory;
 
-### Blogs:
+To download the dependencies, run ```npm install```. To run the application, run ```npm start```. A MongoDB instance is expected to be running at ```localhost:27017```.
 
-```
-npm install
-```
+By default the application accepts web connections on port 3000, so to view it in a web browser navigate to [http://localhost:3000/](http://localhost:3000/).
+
 
 ## Attributions
-Each of the projects are base on the following;
-
-### Blogs:
 
 - [Node.js](https://nodejs.org)
 - [Express.js](https://expressjs.com)
