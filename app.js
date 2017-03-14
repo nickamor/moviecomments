@@ -1,3 +1,13 @@
+const config = require('config');
+
+const MONGO_CONNECT = config.get('mongo.connect');
+const TMDB_API_KEY = config.get('tmdb.api_key');
+
+if (!(MONGO_CONNECT && TMDB_API_KEY)) {
+  console.error("Missing config values");
+  process.exit(1);
+}
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -13,10 +23,6 @@ var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
-// global configuration values from environment
-var MONGO_CONNECT = process.env.MONGO_CONNECT;
-var TMD_API_KEY = process.env.TMD_API_KEY;
 
 var app = express();
 
