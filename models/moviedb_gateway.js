@@ -22,7 +22,7 @@ MovieDbGateway.prototype.host = 'https://api.themoviedb.org';
 MovieDbGateway.prototype.credentials = {
   "username": "USERNAME",
   "password": "PASSWORD",
-  "api_key": TMDB_API_KEY,
+  "api_key": process.env.TMDB_API_KEY,
   "api_read_access_token": "API_READ_ACCESS_TOKEN"
 };
 

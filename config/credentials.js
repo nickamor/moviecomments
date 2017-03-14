@@ -5,7 +5,7 @@
 module.exports = {
 	mongo: {
 		devel: {
-			connection: MONGO_CONNECTION
+			connection: process.env.MONGO_CONNECTION
 		}
 	}
 }
