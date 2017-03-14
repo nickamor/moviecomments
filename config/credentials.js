@@ -5,6 +5,7 @@
 module.exports = {
 	mongo: {
 		devel: {
-			connection: 'mongodb://localhost:27017/movie-blogs'		}
+			connection: MONGO_CONNECTION
+		}
 	}
 }

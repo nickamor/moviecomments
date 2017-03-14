@@ -14,6 +14,10 @@ var session = require('express-session');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+// global configuration values from environment
+var MONGO_CONNECT = process.env.MONGO_CONNECT;
+var TMD_API_KEY = process.env.TMD_API_KEY;
+
 var app = express();
 
 // view engine setup
