@@ -1,4 +1,5 @@
-var config = require('config');
+var config = require('../config/config.js');
+
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
@@ -16,7 +17,7 @@ var opts = {
 	}
 };
 
-mongoose.connect(config.get("mongo.connect"), opts);
+mongoose.connect(config.MONGO_CONNECT, opts);
 
 /* GET home page. */
 router.get('/',  	blogController.home);

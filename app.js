@@ -1,12 +1,4 @@
-const config = require('config');
-
-const MONGO_CONNECT = config.get('mongo.connect');
-const TMDB_API_KEY = config.get('tmdb.api_key');
-
-if (!(MONGO_CONNECT && TMDB_API_KEY)) {
-  console.error("Missing config values");
-  process.exit(1);
-}
+var config = require('./config/config.js');
 
 var express = require('express');
 var path = require('path');
