@@ -1,0 +1,8 @@
+{
+    "mongo": {
+        "connect": ""
+    },
+    "tmdb": {
+        "api_key": ""
+    }
+}

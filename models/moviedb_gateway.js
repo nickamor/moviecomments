@@ -1,3 +1,4 @@
+var config = require('../config/config.js');
 var request = require('request');
 
 /**
@@ -20,10 +21,7 @@ MovieDbGateway.prototype.config = null;
 MovieDbGateway.prototype.host = 'https://api.themoviedb.org';
 
 MovieDbGateway.prototype.credentials = {
-    "username": "USERNAME",
-    "password": "PASSWORD",
-    "api_key": "API_KEY",
-    "api_read_access_token": "API_READ_ACCESS_TOKEN"
+  "api_key": config.TMDB_API_KEY
 };
 
 /**

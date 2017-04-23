@@ -1,9 +1,9 @@
+var config = require('../config/config.js');
+
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
 var mongoose = require('mongoose');
-
-var credentials = require('../config/credentials');
 
 const blogController = require('../controllers/blog_controller.js');
 const authController = require('../controllers/auth_controller');
@@ -17,7 +17,7 @@ var opts = {
 	}
 };
 
-mongoose.connect(credentials.mongo.devel.connection, opts);
+mongoose.connect(config.MONGO_CONNECT, opts);
 
 /* GET home page. */
 router.get('/',  	blogController.home);
