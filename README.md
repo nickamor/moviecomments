@@ -10,7 +10,7 @@ Initially created for ISYS1126 Web Database Applications, Assignment 2, Semester
 
 ## First run
 
-To download the dependencies, run ```npm install```. To run the application, run ```npm start```. A MongoDB instance is expected to be running at ```localhost:27017```.
+To download the dependencies, run ```npm install```. To run the application, run ```npm start```. Two environment variables are needed for configuration: `MONGO_CONNECT` for a valid MongoDB connection string, and `TMDB_API_KEY` to access the third-party movie API.
 
 By default the application accepts web connections on port 3000, so to view it in a web browser navigate to [http://localhost:3000/](http://localhost:3000/).
 
